@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1463613797 source:c:\users\alishah\documents\workspace-cpp\proceduralgeneration\main.cpp
+	<dirent.h>
+	<algorithm>
+	<fstream>
+	<iostream>
+	<string>
+	<vector>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_access.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtx/component_wise.hpp>
+	<glm/gtx/rotate_vector.hpp>
+	<glm/gtx/string_cast.hpp>
+	<jpeglib.h>
+	<time.h>
+
