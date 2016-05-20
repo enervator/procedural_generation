@@ -414,12 +414,21 @@ bool keys[1024];
 
 void KeyCallback(GLFWwindow* window, int key, int scancode, int action,
                  int mods) {
+  std::cout << "here" << std::endl;
   if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
     glfwSetWindowShouldClose(window, GL_TRUE);
   if(action == GLFW_PRESS)
     keys[key] = true;
   else if(action == GLFW_RELEASE && key != GLFW_KEY_SPACE)
     keys[key] = false;
+  else if (key == GLFW_KEY_J && action != GLFW_RELEASE) {
+    std::vector<unsigned char> pixels(3 * window_width * window_height, 0);
+    CHECK_GL_ERROR(glReadPixels(0, 0, window_width, window_height, GL_RGB,
+                                GL_UNSIGNED_BYTE, &pixels[0]));
+    std::string filename = "capture.jpg";
+    std::cout << "Encoding and saving to file '" + filename + "'\n";
+    SaveJPEG(filename, window_width, window_height, &pixels[0]);
+  }
 }
 
 float t = 0.0f, v = 0.15f;
@@ -678,7 +687,7 @@ float mapPerlin[mapSize][mapSize];
 // mix of fractals and perlin noise
 void computeHeights() {
   // compute fractal array, with avg y value
-  computeHeightsFractal(0.6, 20);
+  computeHeightsFractal(0.6, 16);
   for(int i=0; i < mapSize; i++) {
     for(int j=0; j < mapSize; j++) {
       avgFractalY += map[i][j];
