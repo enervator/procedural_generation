@@ -1,6 +1,6 @@
 ## Procedurally Generated Environment in OpenGL
 
-Using a variety of noise generation algorithms working together, the program creates a terrain filled with mountains, hill, and plains. 
+Using a variety of noise generation algorithms working together, the program creates a terrain filled with mountains, hills, and plains. 
 
 ![Example Screenshot](/screenshots/sample.jpg)
 
